@@ -1,0 +1,24 @@
+[
+  {
+    "id": 0,
+    "productTitle": "Comer Mejor",
+    "productDescription": "Características de una vida 100 % saludable",
+    "productPrice": "2500",
+    "image": "../images/book1_2.png"
+  },
+  {
+    "id": 1,
+    "productTitle": "Recetas Saludables",
+    "productDescription": "Características de una vida 100 % saludable",
+    "productPrice": "3000",
+    "image": "../images/book2_2.png"
+  },
+  {
+    "id": 2,
+    "productTitle": "Comer rico y sano",
+    "productDescription": "Características de una vida 100 % saludable",
+    "productPrice": "4500",
+    "image": "../images/book3_3.png"
+  }
+
+]

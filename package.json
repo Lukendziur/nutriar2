@@ -1,0 +1,26 @@
+{
+  "name": "proyectointegrador",
+  "private": true,
+  "version": "1.0.0",
+  "description": "La función está pensada para obtener el ingreso de los datos principales, pero además, es la estructura principal del script.\r Según las secuencias que se vayan dando (a partir del usuario), se ejecutarán las otras funciones.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "development": [
+    "last 1 chrome version",
+    "last 1 firefox version",
+    "last 1 safari version"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lukendziur/proyectoFinalCoder.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Lukendziur/proyectoFinalCoder"
+  },
+  "homepage": "https://github.com/Lukendziur/proyectoFinalCoder#readme"
+
+}

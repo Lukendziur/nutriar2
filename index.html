@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="shortcut icon" href="./images/small-logo.png">   
+      <link rel="stylesheet" href="./public/css/style.css">
+         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+    <title>NutriAr</title>
+</head>
+<body>
+    <header>
+        <div class="headerContainer">
+
+        <a href="index.html"><img src="./images/big-logo.png" alt="Logo verde con forma de manzana y escritura de la marca 'NutriAr'" class="logo"></a> 
+        <a href="index.html"><img src="./images/small-logo.png" alt="Logo verde con forma de manzana y escritura de la marca 'NutriAr" class="smallLogo"></a> 
+
+        <a href="./pages/ecommerce.html" class="link"> > Comprar plan de alimentación</a>
+        <div class="iconsSwitch" id="switchMobile">
+            <i class="fas fa-sun sunIcon" id="sunIcon"></i>
+            <i class="fas fa-moon moonIcon" id="moonIcon"></i> 
+            </div>   
+    </div>
+
+        <img src="./images/background3.png" alt="Imagen de banner con frutas sobre una mesa de marmol blanca. Las frutas son: kiwi, banana, limón y dos licuados en jarras de vidrio" class="backgroundImg">
+        <div class="imgContainer"></div>
+
+    </header>
+    
+ <main class="indexMain">
+
+    <h2>Conocé tu peso ideal</h2>
+     <h4>Para conocer tu peso ideal, por favor rellena los datos solicitados</h4>
+  
+     <form id="form">
+     <section class="userInfo">
+        <article class="target">
+            <h3 class="userData">¿Cuántos años tienes?</h3>
+            <h6 class="h6title">Por ejemplo: 25</h6>
+            <div class="inputContainer">
+            <input class="input" type="number" name="age" id="age"max="100" min="18">
+        </div>
+        </article> 
+
+        <article class="target">
+            <h3 class="userData">¿Cuál es tu género?</h3>
+            <div class="container" id="options">
+                
+            <label class="label" for="women">
+                <input class="checkbox input"  type="radio" id="women" name="genre" value="women" >
+                <img src="./images/woman.png" class="icons" alt="Icono mujer para seleccionar género biológico" >
+            
+            </label>
+           
+            <label class="label" for="men">
+                <input type="radio" name="genre" class="checkbox input" id="men" value="men">
+                <img src="./images/men.png" class="icons" alt="Icono hombre para seleccionar género biológico">
+
+            </label>
+            </div>
+            
+        </article> 
+  
+        <article class="target">
+            <h3 class="userData">¿Cuál es tu estatura?</h3>
+            <h6 class="h6title">Expresalo en centímetros. Por ejemplo: 160 (1,60)</h6>
+
+            <div class="inputContainer">
+            <input class="input" type="number" name="height" id="height"  max="1000" min="1">
+            </div>
+        </article> 
+           
+        
+     </section>
+         <button class="buttonConfirm" id="btnIdealWeight" type="submit">Calcular Peso Ideal</button>
+       
+        </form>      
+        <div class="" id="insertIdealWeight" role="alert"></div> 
+     
+    <h3 class="sectionWeightTitle">¿Te gustaría saber tu Índice de Masa Corporal (IMC)?</h3>
+
+
+     <section class="userInfo calories">
+
+         <article class="target">
+            <h4 class="userData">Por favor, introduzca su peso</h4>
+            <h6 class="h6title">Expresalo en kilogramos. Por ejemplo: 60</h6>
+            <div class="inputContainer">
+            <input class="input" type="number" name="weight" id="weight"  max="300" min="10">
+        </div>
+        </article> <!-- Peso Actual -->         
+     </section>
+     <button class="buttonConfirm" id="btnIMC">Calcular IMC</button>
+
+     <section class="IMCGraph calories">
+         <p id="insertIMC"></p>
+      </section>
+
+    <!-- CALORIES PER DAY -->
+     <h3 class="sectionWeightTitle calories">¿Te gustaría saber cuántas calorías consumir por día <!-- para aumentar/bajar/mantener el peso? Esto debe agregarse con JS -->?</h3>
+      <section class="userInfo calories">          
+ 
+          <article class="target targetActivity"><!-- Nivel de actividad física -->
+              <h4 class="userData">¿Cuál es su nivel de actividad física?</h4>
+              <p class="h6title">Tenga en cuenta lo siguiente: 0 veces por semana: sedentarismo. De 1 a 3 veces por semana: bajo. De 3 a 5 veces por semana: moderado. De 6 a 7 veces por semana: intenso. Más de 4 horas por día: profesional.</p>
+            <select name="select" class="activitySelect" id="activitySelect">
+                <option value="sedentarismo">Sedentarismo</option>
+                <option value="baja">Baja</option>
+                <option value="moderada">Moderado</option>
+                <option value="intensa">Intenso</option>
+                <option value="profesional">Profesional</option>
+            </select>
+          </article> 
+              </section>  
+       
+
+     <button class="buttonConfirm" id="btnCalories">Calcular calorías por día</button>
+        <div class="" id="caloriesPerDay" role="alert"></div> 
+
+ 
+
+ </main>
+
+<footer>
+   By L.K
+</footer>
+
+    <script src="app.js"></script>
+    <script src="darkMode.js"></script>
+
+    
+</body>
+</html>
