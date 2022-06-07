@@ -14,10 +14,8 @@ const fetchData = async () => {
     renderProducts(data);
 
     if (storage) {
-      console.log("hay storage");
       compareProducts(data);
     } else {
-      console.log("empieza desde 0");
 
       addProduct(data);
     }
@@ -44,7 +42,6 @@ const compareProducts = (data) => {
         temporalArr.push(item.id);
       });
       storage = JSON.stringify(storage);
-      console.log("includes: " + temporalArr.includes(product.id));
       if (!temporalArr.includes(product.id)) {
         shoppingCart.push(product);
         shoppingCart = [...new Set(shoppingCart)];
