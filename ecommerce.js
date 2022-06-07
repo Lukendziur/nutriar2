@@ -1,4 +1,10 @@
 let shoppingCart = [];
+const alertMessage = document.getElementById('successAddedProd')
+alertMessage.classList.add('alert-success')
+alertMessage.classList.add('alert')
+
+
+
 const storage = JSON.parse(localStorage.getItem("shoppingCartStorage"));
 let circle = document.getElementById("circle");
 storage ? circle.textContent = storage.length : ''
@@ -45,7 +51,15 @@ const compareProducts = (data) => {
 
         const newArr = shoppingCart.concat(JSON.parse(storage));
         newArr.length >= 0 ? circle.textContent = newArr.length : ''
-  
+
+        alertMessage.innerHTML = `El libro "${product.productTitle}" ha sido añadido con éxito`
+        alertMessage.classList.add('customAlert')
+        setTimeout(() => {
+       alertMessage.innerHTML = '' 
+       alertMessage.classList.remove('customAlert')
+
+      }, 4000)
+
         localStorage.clear();
         localStorage.setItem("shoppingCartStorage", JSON.stringify(newArr));
        
@@ -83,6 +97,8 @@ const renderProducts = (data) => {
 const addProduct = (data) => {
   const buttons = document.querySelectorAll(".cardButton");
   let circle = document.getElementById("circle");
+
+
   buttons.forEach((button) => {
     button.addEventListener("click", () => {
       const product = data.find((item) => item.id == button.id);
@@ -96,6 +112,15 @@ const addProduct = (data) => {
       if (shoppingCart.length >= 0) {
         circle.textContent = shoppingCart.length
       }
+      alertMessage.innerHTML = `El libro "${product.productTitle}" ha sido añadido con éxito`
+      alertMessage.classList.add('customAlert')
+     
+      setTimeout(() => {
+       alertMessage.innerHTML = '' 
+       alertMessage.classList.remove('customAlert')
+      }, 4000)
+      
+      
       addProductToShoppingCart(shoppingCart);
     });
   });

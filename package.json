@@ -21,6 +21,9 @@
   "bugs": {
     "url": "https://github.com/Lukendziur/proyectoFinalCoder"
   },
-  "homepage": "https://github.com/Lukendziur/proyectoFinalCoder#readme"
+  "homepage": "https://github.com/Lukendziur/proyectoFinalCoder#readme",
+  "dependencies": {
+    "sweetalert": "^2.1.2"
 
+  }
 }

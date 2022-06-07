@@ -341,6 +341,11 @@ i#moonIcon {
   justify-content: center;
 }
 
+.customAlert {
+  padding: 30px;
+  width: 40%;
+}
+
 .card img {
   max-width: 400px;
   width: 100%;
@@ -400,6 +405,12 @@ body.dark .cardButton {
 }
 body.dark .cardButton:hover {
   background-color: #fddd82;
+}
+
+.ecommerceMain {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .ecommerceHeader {

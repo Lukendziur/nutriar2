@@ -1,3 +1,4 @@
+
 const getSelectedProducts = () =>{
   if(localStorage.shoppingCartStorage){
     let shoppingCart = JSON.parse(localStorage.getItem('shoppingCartStorage'))
@@ -159,4 +160,14 @@ const buttonActions = () => {
 
 fillShoppingCart()
 
-
+const btnConfirm = document.getElementById('buttonConfirm')
+btnConfirm.addEventListener('click', () =>{
+ Swal.fire({
+    title: 'Confirmación',
+    text: 'Su compra ha sido realizada con éxito',
+    icon: 'success',
+    // confirmButtonText: 'Aceptar'
+    showConfirmButton: false,
+    timer: 1700
+  })
+})
