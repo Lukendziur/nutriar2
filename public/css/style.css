@@ -12,6 +12,11 @@ body.dark {
   color: whitesmoke;
 }
 
+.details {
+  display: flex;
+  align-items: flex-end;
+}
+
 .indexMain, .headerContainer {
   color: #444;
 }
@@ -57,7 +62,6 @@ footer {
   padding-top: 30px;
   display: block;
   text-align: right;
-  width: 80%;
 }
 
 .link:hover {
@@ -278,6 +282,10 @@ i#moonIcon {
     display: flex;
     flex-direction: column;
   }
+
+  .link {
+    width: 55%;
+  }
 }
 @media (max-width: 600px) {
   .iconsSwitch {
@@ -317,6 +325,11 @@ i#moonIcon {
 @media (max-width: 400px) {
   .userInfo {
     margin-top: 20px;
+  }
+
+  .link {
+    width: 40%;
+    font-size: 12px;
   }
 }
 /* PAGE 2: ECOMMERCE  */

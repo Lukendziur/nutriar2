@@ -1,4 +1,5 @@
-
+const storage = JSON.parse(localStorage.getItem("shoppingCartStorage"));
+storage ? circle.textContent = storage.length : ''
 const getIMC = (userGender, userHeight) => {
   let weight = document.getElementById('weight').value
   if (weight && userGender && userHeight){

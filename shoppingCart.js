@@ -3,8 +3,6 @@ const getSelectedProducts = () =>{
     let shoppingCart = JSON.parse(localStorage.getItem('shoppingCartStorage'))
    return shoppingCart
   }
-   
-
 
 }
 getSelectedProducts()
@@ -36,9 +34,6 @@ if (selectedProducts) {
   productTitle.classList.remove('titleDisplayNone')
 }
 }
-
-
-// productTitle.classList.remove('ProductsTitle')
 
 containerProduct.innerHTML = ''
 
@@ -106,13 +101,6 @@ emptyCartImg.classList.remove('titleDisplayNone')
 })
 
 }
-
-
-
-
-
-
-
 }
 
 const buttonActions = () => {
@@ -128,9 +116,7 @@ const buttonActions = () => {
           prod.quantity++
         
       }
-      })
-
-      
+      })      
       // Se agrega a localStorage
       localStorage.clear()
       localStorage.setItem('shoppingCartStorage',JSON.stringify(selectedProducts))

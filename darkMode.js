@@ -17,28 +17,14 @@
   btnSun.classList.add('sunIcon')
   btnMoon.classList.remove('moonIcon')
 }
-   
+    btnSwitchMode.addEventListener('click', () => {     
 
 
-
-
-
-
-   btnSwitchMode.addEventListener('click', () => {     
-
-      //  document.body.classList.toggle('dark');
-       btnSwitchMode.classList.toggle('active') // Si está activo, estamos en darkMode: se muestra sol
-      //  btnMoon.classList.toggle('moonIcon')
-      //  btnSun.classList.toggle('sunIcon')
-
+       btnSwitchMode.classList.toggle('active') 
        if(btnSwitchMode.classList.contains('active')){
-        //  btnMoon.classList.add('moonIcon')
          sessionStorage.setItem('darkMode', true)         
        }else{
         sessionStorage.setItem('darkMode', false)      
-        // btnMoon.classList.remove('moonIcon')
-
-
        }
 
        if (sessionStorage.darkMode) {
