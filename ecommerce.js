@@ -1,14 +1,11 @@
 let shoppingCart = [];
-const alertMessage = document.getElementById('successAddedProd')
-alertMessage.classList.add('alert-success')
-alertMessage.classList.add('alert')
-
-
+const alertMessage = document.getElementById("successAddedProd");
+alertMessage.classList.add("alert-success");
+alertMessage.classList.add("alert");
 
 const storage = JSON.parse(localStorage.getItem("shoppingCartStorage"));
 let circle = document.getElementById("circle");
-storage ? circle.textContent = storage.length : ''
-
+storage ? (circle.textContent = storage.length) : "";
 
 const fetchData = async () => {
   try {
@@ -17,8 +14,11 @@ const fetchData = async () => {
     renderProducts(data);
 
     if (storage) {
+      console.log("hay storage");
       compareProducts(data);
     } else {
+      console.log("empieza desde 0");
+
       addProduct(data);
     }
   } catch (e) {
@@ -44,25 +44,39 @@ const compareProducts = (data) => {
         temporalArr.push(item.id);
       });
       storage = JSON.stringify(storage);
-
+      console.log("includes: " + temporalArr.includes(product.id));
       if (!temporalArr.includes(product.id)) {
         shoppingCart.push(product);
         shoppingCart = [...new Set(shoppingCart)];
 
-        const newArr = shoppingCart.concat(JSON.parse(storage));
-        newArr.length >= 0 ? circle.textContent = newArr.length : ''
+        let newArr = shoppingCart.concat(JSON.parse(storage));
+        newArr.length >= 0 ? (circle.textContent = newArr.length) : "";
 
-        alertMessage.innerHTML = `El libro "${product.productTitle}" ha sido añadido con éxito`
-        alertMessage.classList.add('customAlert')
+        alertMessage.innerHTML = `El libro "${product.productTitle}" ha sido añadido con éxito`;
+        alertMessage.classList.add("customAlert");
         setTimeout(() => {
-       alertMessage.innerHTML = '' 
-       alertMessage.classList.remove('customAlert')
-
-      }, 4000)
+          alertMessage.innerHTML = "";
+          alertMessage.classList.remove("customAlert");
+        }, 4000);
 
         localStorage.clear();
+        newArr = newArr.filter(
+          (value, index, self) =>
+            index ===
+            self.findIndex(
+              (t) =>
+                t.id ===
+                  value.id &&
+                t.image ===
+                  value.image &&
+                t.productDescription === value.productDescription &&
+                t.productPrice === value.productPrice &&
+                t.productTitle === value.productTitle  &&
+                t.quantity === value.quantity
+            )
+        );
+
         localStorage.setItem("shoppingCartStorage", JSON.stringify(newArr));
-       
       }
     });
   });
@@ -98,7 +112,6 @@ const addProduct = (data) => {
   const buttons = document.querySelectorAll(".cardButton");
   let circle = document.getElementById("circle");
 
-
   buttons.forEach((button) => {
     button.addEventListener("click", () => {
       const product = data.find((item) => item.id == button.id);
@@ -107,20 +120,19 @@ const addProduct = (data) => {
       }
 
       shoppingCart.push(product);
-      shoppingCart = [...new Set(shoppingCart)];   
+      shoppingCart = [...new Set(shoppingCart)];
 
       if (shoppingCart.length >= 0) {
-        circle.textContent = shoppingCart.length
+        circle.textContent = shoppingCart.length;
       }
-      alertMessage.innerHTML = `El libro "${product.productTitle}" ha sido añadido con éxito`
-      alertMessage.classList.add('customAlert')
-     
+      alertMessage.innerHTML = `El libro "${product.productTitle}" ha sido añadido con éxito`;
+      alertMessage.classList.add("customAlert");
+
       setTimeout(() => {
-       alertMessage.innerHTML = '' 
-       alertMessage.classList.remove('customAlert')
-      }, 4000)
-      
-      
+        alertMessage.innerHTML = "";
+        alertMessage.classList.remove("customAlert");
+      }, 4000);
+
       addProductToShoppingCart(shoppingCart);
     });
   });
@@ -129,5 +141,4 @@ const addProduct = (data) => {
 const addProductToShoppingCart = (shoppingCart) => {
   shoppingCart = [...new Set(shoppingCart)];
   localStorage.setItem("shoppingCartStorage", JSON.stringify(shoppingCart));
-
 };
