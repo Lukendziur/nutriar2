@@ -16,13 +16,9 @@ const fetchData = async () => {
     let storage = JSON.parse(localStorage.getItem('shoppingCartStorage'));
 
     if (storage) {
-
-      console.log('comparo');
       compareProducts(data)
 
     } else {
-      console.log('agrego de 0');
-
       addProduct(data)
     }
     
@@ -50,7 +46,6 @@ const compareProducts = (data) =>{
       storage = JSON.stringify(storage)
 
       if (!storage.includes(JSON.stringify(product))) {
-        console.log('entró al if: se setea dicho product');
          shoppingCart.push(product)
          shoppingCart = [...new Set(shoppingCart)]
          
@@ -117,7 +112,6 @@ const addProduct = (data) => {
 }
 
 const addProductToShoppingCart = (shoppingCart) =>{
-  // console.log(shoppingCart); 
   let circle = document.getElementById('circle')
 
   localStorage.setItem('shoppingCartStorage', JSON.stringify(shoppingCart))
@@ -133,20 +127,3 @@ const addProductToShoppingCart = (shoppingCart) =>{
 
 
 
-window.onload = function() {
-  //   let storage = JSON.parse(localStorage.getItem('shoppingCartStorage'));
-  //   console.log(shoppingCart);
-
-  //   if(storage){
-  //     // comparo productos y agrego solo los q no existen
-  //   console.log(storage);
-  //   shoppingCart = storage;
-  //   console.log(shoppingCart);
-
-  //   shoppingCart = [...new Set(shoppingCart)]
-  //   localStorage.setItem('shoppingCartStorage', JSON.stringify(shoppingCart))
-  //  } else{
-  //     //agrego todos
-  //     fetchData()
-  //   }
-  }

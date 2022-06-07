@@ -125,7 +125,6 @@ const buttonActions = () => {
       //   Se agrega al objeto que tenemos.
       selectedProducts.forEach((prod) => {
         if (btn.id == prod.id) {
-          console.log('hiciste click en: '+ prod.id);
           prod.quantity++
         
       }
@@ -145,21 +144,17 @@ const buttonActions = () => {
       selectedProducts.forEach((prod) => {
         if (prod.quantity > 1) {
           if (btn.id == prod.id) {
-            console.log('hiciste click en: '+ prod.id);
             prod.quantity--
           
         }
         }else{
           if(btn.id == prod.id){
-        console.log('es cero');
        let index = selectedProducts.indexOf(prod)
-       console.log('index: ', index);
        selectedProducts.splice(index, 1)
 
       }
         } 
 
-      console.log(selectedProducts);
       })
 
   if (!selectedProducts || selectedProducts.length <= 0) {
