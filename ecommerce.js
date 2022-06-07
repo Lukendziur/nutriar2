@@ -9,14 +9,10 @@ const fetchData = async () => {
     const response = await fetch("../products.json");
     const data = await response.json();
     renderProducts(data);
-    // let storage = JSON.parse(localStorage.getItem("shoppingCartStorage"));
 
     if (storage) {
-      console.log('Compare');
       compareProducts(data);
     } else {
-      console.log('Inicio desde 0');
-
       addProduct(data);
     }
   } catch (e) {
@@ -48,9 +44,8 @@ const compareProducts = (data) => {
         shoppingCart = [...new Set(shoppingCart)];
 
         const newArr = shoppingCart.concat(JSON.parse(storage));
-        if (newArr.length >= 0) {
-                  circle.textContent = newArr.length
-                }
+        newArr.length >= 0 ? circle.textContent = newArr.length : ''
+  
         localStorage.clear();
         localStorage.setItem("shoppingCartStorage", JSON.stringify(newArr));
        
