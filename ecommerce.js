@@ -1,7 +1,4 @@
 let shoppingCart = [];
-const alertMessage = document.getElementById("successAddedProd");
-alertMessage.classList.add("alert-success");
-alertMessage.classList.add("alert");
 
 const storage = JSON.parse(localStorage.getItem("shoppingCartStorage"));
 let circle = document.getElementById("circle");
@@ -49,12 +46,13 @@ const compareProducts = (data) => {
         let newArr = shoppingCart.concat(JSON.parse(storage));
         newArr.length >= 0 ? (circle.textContent = newArr.length) : "";
 
-        alertMessage.innerHTML = `El libro "${product.productTitle}" ha sido añadido con éxito`;
-        alertMessage.classList.add("customAlert");
-        setTimeout(() => {
-          alertMessage.innerHTML = "";
-          alertMessage.classList.remove("customAlert");
-        }, 4000);
+        Toastify({
+          text: `El libro "${product.productTitle}" ha sido añadido con éxito`,
+          duration: 3000,
+          style: {
+            background:'#b9c94e',
+          }
+        }).showToast();
 
         localStorage.clear();
         newArr = newArr.filter(
@@ -111,6 +109,7 @@ const addProduct = (data) => {
 
   buttons.forEach((button) => {
     button.addEventListener("click", () => {
+
       const product = data.find((item) => item.id == button.id);
       if (!product.quantity) {
         product.quantity = 1;
@@ -122,13 +121,14 @@ const addProduct = (data) => {
       if (shoppingCart.length >= 0) {
         circle.textContent = shoppingCart.length;
       }
-      alertMessage.innerHTML = `El libro "${product.productTitle}" ha sido añadido con éxito`;
-      alertMessage.classList.add("customAlert");
 
-      setTimeout(() => {
-        alertMessage.innerHTML = "";
-        alertMessage.classList.remove("customAlert");
-      }, 4000);
+      Toastify({
+        text: `El libro "${product.productTitle}" ha sido añadido con éxito`,
+        duration: 3000,
+        style: {
+          background:'#b9c94e',
+        }
+      }).showToast();
 
       addProductToShoppingCart(shoppingCart);
     });
@@ -139,3 +139,4 @@ const addProductToShoppingCart = (shoppingCart) => {
   shoppingCart = [...new Set(shoppingCart)];
   localStorage.setItem("shoppingCartStorage", JSON.stringify(shoppingCart));
 };
+

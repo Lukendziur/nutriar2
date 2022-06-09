@@ -89,16 +89,61 @@ const totalAmount = selectedProducts.reduce((a, {quantity, productPrice}) => a +
   containerProduct.appendChild(fragment)
   const deleteCart = document.getElementById('buttonDeleteCart')
 deleteCart.addEventListener('click', () => {
-productTitle.classList.add('ProductsTitles')
-leerShopingCartTitle.classList.remove('titleDisplayNone')
-leerShoppingCartTitle2.classList.remove('titleDisplayNone')
-emptyCartImg.classList.remove('titleDisplayNone')
+
+  const swalWithBootstrapButtons = Swal.mixin({
+    customClass: {
+      confirmButton: 'btn btn-success',
+      cancelButton: 'btn btn-danger'
+    },
+  })
+  
+  swalWithBootstrapButtons.fire({
+    title: '¿Estás seguro?',
+    text: "No se podrá recuperar el carrito",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonText: 'Sí, borrar el carrito!',
+    cancelButtonText: 'No, cancelar!',
+    reverseButtons: true
+  }).then((result) => {
+    if (result.isConfirmed) {
+      swalWithBootstrapButtons.fire(
+        'Eliminado!',
+        'El carrito fue eliminado.',
+        'success'
+      )
+      productTitle.classList.add('ProductsTitles')
+      leerShopingCartTitle.classList.remove('titleDisplayNone')
+      leerShoppingCartTitle2.classList.remove('titleDisplayNone')
+      emptyCartImg.classList.remove('titleDisplayNone')
 
 
 
-  selectedProducts = []
-  localStorage.clear() 
-  fillTotalAmount()
+        selectedProducts = []
+        localStorage.clear() 
+        fillTotalAmount()
+    } else if (
+      /* Read more about handling dismissals below */
+      result.dismiss === Swal.DismissReason.cancel
+    ) {
+      swalWithBootstrapButtons.fire(
+        'Cancelado',
+        'Tu carrito está a salvo :)',
+        'error'
+      )
+    }
+  })
+
+// productTitle.classList.add('ProductsTitles')
+// leerShopingCartTitle.classList.remove('titleDisplayNone')
+// leerShoppingCartTitle2.classList.remove('titleDisplayNone')
+// emptyCartImg.classList.remove('titleDisplayNone')
+
+
+
+//   selectedProducts = []
+//   localStorage.clear() 
+//   fillTotalAmount()
 })
 
 }
