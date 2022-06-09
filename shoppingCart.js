@@ -207,6 +207,7 @@ fillShoppingCart()
 
 const btnConfirm = document.getElementById('buttonConfirm')
 btnConfirm.addEventListener('click', () =>{
+  console.log('hice click');
  Swal.fire({
     title: 'Confirmación',
     text: 'Su compra ha sido realizada con éxito',
