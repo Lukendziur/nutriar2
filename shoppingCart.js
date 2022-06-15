@@ -188,6 +188,8 @@ const buttonActions = () => {
             localStorage.clear()
             localStorage.setItem('shoppingCartStorage',JSON.stringify(selectedProducts))
         fillShoppingCart()
+        confirmButton()
+
         
         })
         })
@@ -220,6 +222,8 @@ const buttonActions = () => {
 
         
         fillShoppingCart()
+        confirmButton()
+
         })
         })
   }catch(e){
